@@ -21,13 +21,12 @@ stdenv.mkDerivation (finalAttrs: {
     hash = "sha256-9ZW29SXWzy/fZreOmNnjywwlaSReZXnqq+uzGsuWP2g=";
   };
 
-  buildInputs = [
-    rsync
-    perl
-    wget
-    llvmPackages.openmp
+  nativeBuildInputs = [
     zlib
-    python3
+  ];
+
+  buildInputs = [
+    llvmPackages.openmp
   ];
 
   installFlags = [ "KRAKEN2_DIR=$(out)/libexec/kraken2" ];
@@ -46,8 +45,6 @@ stdenv.mkDerivation (finalAttrs: {
               wget
               perl
               rsync 
-              llvmPackages.openmp
-              zlib
               python3
             ] 
           }
